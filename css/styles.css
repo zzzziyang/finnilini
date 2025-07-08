@@ -1,0 +1,352 @@
+/* Color Palette
+--nordic-blue: #005F73 (Deep fjord blue - primary)
+--arctic-white: #F8F9FA (Snow white - background)
+--aurora-green: #94D2BD (Northern lights - accent)
+--midnight-navy: #001219 (Dark winter night - text)
+--sunset-orange: #EE9B00 (Nordic sunset - highlights)
+*/
+
+:root {
+  --nordic-blue: #005F73;
+  --arctic-white: #F8F9FA;
+  --aurora-green: #94D2BD;
+  --midnight-navy: #001219;
+  --sunset-orange: #EE9B00;
+  --font-main: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+/* Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-main);
+  background: linear-gradient(135deg, #e0f7fa 0%, #F8F9FA 40%, #94D2BD 100%);
+  color: var(--midnight-navy);
+  line-height: 1.6;
+}
+
+/* Header and Navigation */
+.header {
+  background-color: var(--nordic-blue);
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  left: 0;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--arctic-white);
+  margin-left: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logo img.finland-flag {
+  height: 60px;
+  width: auto;
+  margin: 0;
+  vertical-align: middle;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  border-radius: 6px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-links a {
+  color: var(--arctic-white);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: var(--aurora-green);
+}
+
+/* Hero Section */
+.hero {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: linear-gradient(120deg, #F8F9FA 0%, #94D2BD 60%, #EE9B00 100%);
+  box-shadow: 0 4px 32px rgba(0,95,115,0.10);
+  border-radius: 1.5rem;
+  margin: 2rem auto 2rem auto;
+  max-width: 1100px;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: var(--nordic-blue);
+}
+
+.hero p {
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Map Container */
+.map-container {
+  height: 500px;
+  position: relative;
+}
+
+#interactive-map {
+  height: 100%;
+  width: 700px; /* Set a fixed width for the map */
+  max-width: 100%; /* Responsive: don't exceed container */
+  margin: 0 auto; /* Center the map horizontally */
+  display: block;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+  border-radius: 1rem;
+}
+
+.weather-overlay {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Routes and Gems Sections */
+.routes {
+  padding: 4rem 2rem;
+  max-width: 1200px;
+  margin: 2rem auto 2rem auto;
+  background: linear-gradient(120deg, #F8F9FA 60%, #94D2BD 100%);
+  border-radius: 1.5rem;
+  box-shadow: 0 4px 32px rgba(0,95,115,0.08);
+}
+.hidden-gems {
+  padding: 4rem 2rem;
+  max-width: 1200px;
+  margin: 2rem auto 2rem auto;
+  background: linear-gradient(120deg, #e0f7fa 0%, #94D2BD 100%);
+  border-radius: 1.5rem;
+  box-shadow: 0 4px 32px rgba(0,95,115,0.08);
+}
+
+.routes-grid, .gems-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.route-card, .gem-card {
+  background: linear-gradient(120deg, #fff 60%, #94D2BD 100%);
+  border: 1px solid #e0f7fa;
+  border-radius: 1rem;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  padding: 2rem 1.5rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.route-card:hover, .gem-card:hover {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 8px 32px rgba(0,95,115,0.18);
+  background: linear-gradient(120deg, #94D2BD 0%, #fff 100%);
+}
+
+.routes h2, .hidden-gems h2 {
+  color: var(--nordic-blue);
+  font-size: 2.2rem;
+  margin-bottom: 1.5rem;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+/* Footer */
+.footer {
+  background: linear-gradient(90deg, #005F73 60%, #94D2BD 100%);
+  box-shadow: 0 -2px 24px rgba(0,95,115,0.10);
+  color: var(--arctic-white);
+  text-align: center;
+  padding: 2rem;
+  margin-top: 4rem;
+  border-top-left-radius: 2rem;
+  border-top-right-radius: 2rem;
+}
+
+/* Accessibility and Interactive Elements */
+:focus {
+  outline: 3px solid var(--sunset-orange);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .nav {
+    flex-direction: column;
+    gap: 1rem;
+    position: static;
+  }
+
+  .nav-left {
+    position: static;
+    margin-bottom: 1rem;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .map-container {
+    height: 400px;
+  }
+}
+
+/* Chatbot Widget Styles */
+#chatbot-container {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 2000;
+  font-family: inherit;
+}
+#chatbot-toggle {
+  background: var(--nordic-blue, #005F73);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 3rem;
+  height: 3rem;
+  font-size: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+#chatbot-toggle:hover {
+  background: var(--aurora-green, #94D2BD);
+}
+#chatbot-window {
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+  width: 320px;
+  max-width: 90vw;
+  padding: 0;
+  margin-top: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+#chatbot-header {
+  background: var(--nordic-blue, #005F73);
+  color: #fff;
+  padding: 0.75rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+}
+#chatbot-close {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+#chatbot-messages {
+  padding: 1rem;
+  height: 200px;
+  overflow-y: auto;
+  background: #f8f9fa;
+  font-size: 1rem;
+}
+.chatbot-user {
+  text-align: right;
+  margin-bottom: 0.5rem;
+  color: var(--nordic-blue, #005F73);
+}
+.chatbot-bot {
+  text-align: left;
+  margin-bottom: 0.5rem;
+  color: var(--midnight-navy, #001219);
+}
+#chatbot-form {
+  display: flex;
+  border-top: 1px solid #eee;
+  background: #fff;
+}
+#chatbot-input {
+  flex: 1;
+  border: none;
+  padding: 0.75rem;
+  font-size: 1rem;
+  border-radius: 0 0 0 1rem;
+  outline: none;
+}
+#chatbot-form button[type="submit"] {
+  background: var(--sunset-orange, #EE9B00);
+  color: #fff;
+  border: none;
+  padding: 0 1.2rem;
+  font-size: 1rem;
+  border-radius: 0 0 1rem 0;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+#chatbot-form button[type="submit"]:hover {
+  background: var(--nordic-blue, #005F73);
+}
+@media (max-width: 600px) {
+  #chatbot-container {
+    right: 1rem;
+    bottom: 1rem;
+  }
+  #chatbot-window {
+    width: 95vw;
+    min-width: 0;
+  }
+}
+
+.finland-flag {
+  height: 50px;
+  width: auto;
+  margin-right: 0.5rem;
+  vertical-align: middle;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  border-radius: 4px;
+}
