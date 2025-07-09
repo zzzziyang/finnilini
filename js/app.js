@@ -34,52 +34,51 @@ function updateWeatherOverlay(data) {
 
 // Sample routes data (replace with actual data from backend)
 const routes = [
-    {
-        name: 'Helsinki City Tour',
-        description: 'Explore the vibrant capital city, including Senate Square, Market Square, and the Design District.',
-        duration: '4 hours',
-        difficulty: 'Easy',
-        image: '/public/helsinki.jpg'
-    },
-    {
-        name: 'Lapland Adventure',
-        description: 'Experience the magic of Lapland: Rovaniemi, Santa Claus Village, and a reindeer safari.',
-        duration: '2 days',
-        difficulty: 'Moderate',
-        image: '/public/lapland.jpg'
-    },
-    {
-        name: 'Coastal Castles Route',
-        description: 'Visit Turku Castle, Suomenlinna Fortress, and Olavinlinna Castle along Finland’s scenic coast.',
-        duration: '1 day',
-        difficulty: 'Easy',
-        image: '/public/coastalcastle.jpg'
-    }
+  {
+    name: 'Helsinki City Tour',
+    description: 'Explore the vibrant capital city, including Senate Square, Market Square, and the Design District.',
+    duration: '4 hours',
+    difficulty: 'Easy',
+    image: 'https://zzzziyang.github.io/finnilini/helsinki.jpg'
+  },
+  {
+    name: 'Lapland Adventure',
+    description: 'Experience the magic of Lapland: Rovaniemi, Santa Claus Village, and a reindeer safari.',
+    duration: '2 days',
+    difficulty: 'Moderate',
+    image: 'https://zzzziyang.github.io/finnilini/lapland.jpg'
+  },
+  {
+    name: 'Coastal Castles Route',
+    description: 'Visit Turku Castle, Suomenlinna Fortress, and Olavinlinna Castle along Finland’s scenic coast.',
+    duration: '1 day',
+    difficulty: 'Easy',
+    image: 'https://zzzziyang.github.io/finnilini/coastalcastle.jpg'
+  }
 ];
 
-// Sample hidden gems data (replace with actual data from backend)
 const hiddenGems = [
-    {
-        name: 'Secret Lake View',
-        location: 'Northern Lapland',
-        description: 'A pristine lake with aurora viewing spot',
-        category: 'Nature',
-        image: '/public/secretlake.jpg'
-    },
-    {
-        name: 'Kummakivi Balancing Rock',
-        location: 'Ruokolahti',
-        description: 'A mysterious balancing rock in the forest, a true geological wonder.',
-        category: 'Natural Wonder',
-        image: '/public/balancingrock.jpg'
-    },
-    {
-        name: 'Vallisaari Island',
-        location: 'Helsinki Archipelago',
-        description: 'A tranquil island with lush nature and abandoned fortifications, perfect for peaceful walks.',
-        category: 'Island',
-        image: '/public/island.jpg'
-    }
+  {
+    name: 'Secret Lake View',
+    location: 'Northern Lapland',
+    description: 'A pristine lake with aurora viewing spot',
+    category: 'Nature',
+    image: 'https://zzzziyang.github.io/finnilini/secretlake.jpg'
+  },
+  {
+    name: 'Kummakivi Balancing Rock',
+    location: 'Ruokolahti',
+    description: 'A mysterious balancing rock in the forest, a true geological wonder.',
+    category: 'Natural Wonder',
+    image: 'https://zzzziyang.github.io/finnilini/balancingrock.jpg'
+  },
+  {
+    name: 'Vallisaari Island',
+    location: 'Helsinki Archipelago',
+    description: 'A tranquil island with lush nature and abandoned fortifications, perfect for peaceful walks.',
+    category: 'Island',
+    image: 'https://zzzziyang.github.io/finnilini/island.jpg'
+  }
 ];
 
 
