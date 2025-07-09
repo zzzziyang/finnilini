@@ -6,6 +6,13 @@ const chatbotForm = document.getElementById('chatbot-form');
 const chatbotInput = document.getElementById('chatbot-input');
 const chatbotMessages = document.getElementById('chatbot-messages');
 
+// Persisted chat session
+let chatId = localStorage.getItem('chatId');
+if (!chatId) {
+  chatId = crypto.randomUUID();
+  localStorage.setItem('chatId', chatId);
+}
+
 chatbotToggle.addEventListener('click', () => {
   chatbotWindow.hidden = false;
   chatbotWindow.style.display = '';
@@ -14,11 +21,8 @@ chatbotToggle.addEventListener('click', () => {
 
 chatbotClose.addEventListener('click', () => {
   chatbotWindow.hidden = true;
-  chatbotWindow.style.display = 'none'; // Fallback: forcibly hide
+  chatbotWindow.style.display = 'none';
 });
-
-
-let chatId = null;
 
 chatbotForm.addEventListener('submit', async (e) => {
   e.preventDefault();
@@ -27,7 +31,6 @@ chatbotForm.addEventListener('submit', async (e) => {
   appendMessage('You', userMsg);
   chatbotInput.value = '';
   chatbotInput.focus();
-  // Show typing indicator
   const typingDiv = document.createElement('div');
   typingDiv.className = 'chatbot-bot chatbot-typing';
   typingDiv.innerHTML = '<em>Finnilini Bot is typing...</em>';
@@ -52,7 +55,10 @@ async function getBotResponse(input) {
     const response = await fetch(endpoint, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ question: input })
+      body: JSON.stringify({
+        question: input,
+        sessionId: chatId
+      })
     });
     const data = await response.json();
     return data.text || data.answer || data.result || 'Sorry, no response.';
