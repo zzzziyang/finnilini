@@ -57,7 +57,7 @@ async function getBotResponse(input) {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         question: input,
-        sessionId: chatId
+        chatId: chatId
       })
     });
     const data = await response.json();
