@@ -39,21 +39,21 @@ const routes = [
     description: 'Explore the vibrant capital city, including Senate Square, Market Square, and the Design District.',
     duration: '4 hours',
     difficulty: 'Easy',
-    image: 'https://zzzziyang.github.io/finnilini/helsinki.jpg'
+    image: '/helsinki.jpg'
   },
   {
     name: 'Lapland Adventure',
     description: 'Experience the magic of Lapland: Rovaniemi, Santa Claus Village, and a reindeer safari.',
     duration: '2 days',
     difficulty: 'Moderate',
-    image: 'https://zzzziyang.github.io/finnilini/lapland.jpg'
+    image: '/lapland.jpg'
   },
   {
     name: 'Coastal Castles Route',
     description: 'Visit Turku Castle, Suomenlinna Fortress, and Olavinlinna Castle along Finland’s scenic coast.',
     duration: '1 day',
     difficulty: 'Easy',
-    image: 'https://zzzziyang.github.io/finnilini/coastalcastle.jpg'
+    image: '/coastalcastle.jpg'
   }
 ];
 
@@ -63,21 +63,21 @@ const hiddenGems = [
     location: 'Northern Lapland',
     description: 'A pristine lake with aurora viewing spot',
     category: 'Nature',
-    image: 'https://zzzziyang.github.io/finnilini/secretlake.jpg'
+    image: '/secretlake.jpg'
   },
   {
     name: 'Kummakivi Balancing Rock',
     location: 'Ruokolahti',
     description: 'A mysterious balancing rock in the forest, a true geological wonder.',
     category: 'Natural Wonder',
-    image: 'https://zzzziyang.github.io/finnilini/balancingrock.jpg'
+    image: '/balancingrock.jpg'
   },
   {
     name: 'Vallisaari Island',
     location: 'Helsinki Archipelago',
     description: 'A tranquil island with lush nature and abandoned fortifications, perfect for peaceful walks.',
     category: 'Island',
-    image: 'https://zzzziyang.github.io/finnilini/island.jpg'
+    image: '/island.jpg'
   }
 ];
 
