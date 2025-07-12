@@ -331,6 +331,18 @@ body {
 #chatbot-form button[type="submit"]:hover {
   background: var(--nordic-blue, #005F73);
 }
+
+#chatbot-messages ul,
+#chatbot-messages ol {
+  margin-left: 1.2em;   /* Controls the left indent of bullets */
+  padding-left: 1em;    /* Controls inner spacing */
+  list-style-position: inside; /* Ensures bullets are inside the container */
+}
+
+#chatbot-messages li {
+  margin-bottom: 0.25em; /* Optional: spacing between bullet items */
+}
+
 @media (max-width: 600px) {
   #chatbot-container {
     right: 1rem;
