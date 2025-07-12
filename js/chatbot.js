@@ -11,6 +11,11 @@ let chatId = localStorage.getItem('chatId');
 // Initial message
 let chatbotInitialized = false;
 
+if (!chatbotInitialized) {
+  appendMessage('Finnilini Bot', "Hi! How can I help you plan your Finland trip today?");
+  chatbotInitialized = true;
+}
+
 if (!chatId) {
   chatId = crypto.randomUUID();
   localStorage.setItem('chatId', chatId);
@@ -21,10 +26,7 @@ chatbotToggle.addEventListener('click', () => {
   chatbotWindow.style.display = '';
   chatbotInput.focus();
 
-  if (!chatbotInitialized) {
-    appendMessage('Finnilini Bot', "Hi! How can I help you plan your Finland trip today?");
-    chatbotInitialized = true;
-  }
+
 });
 
 chatbotClose.addEventListener('click', () => {
