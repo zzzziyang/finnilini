@@ -8,6 +8,9 @@ const chatbotMessages = document.getElementById('chatbot-messages');
 
 // Persisted chat session
 let chatId = localStorage.getItem('chatId');
+// Initial message
+let chatbotInitialized = false;
+
 if (!chatId) {
   chatId = crypto.randomUUID();
   localStorage.setItem('chatId', chatId);
@@ -17,6 +20,11 @@ chatbotToggle.addEventListener('click', () => {
   chatbotWindow.hidden = false;
   chatbotWindow.style.display = '';
   chatbotInput.focus();
+
+  if (!chatbotInitialized) {
+    appendMessage('Finnilini Bot', "Hi! How can I help you plan your Finland trip today?");
+    chatbotInitialized = true;
+  }
 });
 
 chatbotClose.addEventListener('click', () => {
@@ -31,12 +39,15 @@ chatbotForm.addEventListener('submit', async (e) => {
   appendMessage('You', userMsg);
   chatbotInput.value = '';
   chatbotInput.focus();
+
   const typingDiv = document.createElement('div');
   typingDiv.className = 'chatbot-bot chatbot-typing';
   typingDiv.innerHTML = '<em>Finnilini Bot is typing...</em>';
   chatbotMessages.appendChild(typingDiv);
   chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+
   const botReply = await getBotResponse(userMsg);
+
   typingDiv.remove();
   appendMessage('Finnilini Bot', botReply);
 });
@@ -44,7 +55,16 @@ chatbotForm.addEventListener('submit', async (e) => {
 function appendMessage(sender, text) {
   const msgDiv = document.createElement('div');
   msgDiv.className = sender === 'You' ? 'chatbot-user' : 'chatbot-bot';
-  msgDiv.innerHTML = `<strong>${sender}:</strong> ${text}`;
+
+  if (sender === 'You') {
+    // User messages as plain text (escaped)
+    msgDiv.textContent = `${sender}: ${text}`;
+  } else {
+    // Bot messages parsed from Markdown to HTML using marked
+    const htmlText = marked.parse(text);
+    msgDiv.innerHTML = `<strong>${sender}:</strong> ${htmlText}`;
+  }
+
   chatbotMessages.appendChild(msgDiv);
   chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
 }
